@@ -7,33 +7,33 @@
 <p>代码：<a href="https://github.com/charlesq34/pointnet" target="_blank" rel="noopener">tensroflow</a> <a href="https://github.com/fxia22/pointnet.pytorch" target="_blank" rel="noopener">pytorch</a> </p>
 <h1 id="1-摘要"><a href="#1-摘要" class="headerlink" title="1. 摘要"></a>1. 摘要</h1><p>点云是几何数据结构的一种重要类型，由于它的格式不规则，大多数研究人员将这种数据转换成规则的三维体素栅格或者多幅图像的集合来进行处理。但是，这种方式会增加不必要的数据量并且导致一些问题。</p>
 <p>在本文中，设计了一种可以直接处理点云的新型神经网络，该网络很好的考虑的点云输入的排列不变性，将该网络命名为PointNet。PointNet为目标检测、部分分割、场景语义解析等应用提供了一种统一的结构。尽管很简单，PointNet非常的高效和有效。从实验上，它表现出与start-of-the-art同等强大或更优的性能；从理论上，本文分析了该网络学到了什么以及为何该网络对输入的扰动和破坏具有鲁棒性。</p>
-<h1 id="2-网络结构"><a href="#2-网络结构" class="headerlink" title="2. 网络结构"></a>2. 网络结构</h1><p><img src="/.com//image-20200127160355226.png" alt="image-20200127160355226"></p>
+<h1 id="2-网络结构"><a href="#2-网络结构" class="headerlink" title="2. 网络结构"></a>2. 网络结构</h1><p><img src="/2020/01/27/pointNet/image-20200127160355226.png" alt="image-20200127160355226"></p>
 <p>整体网络结构如图所示，由三个关键模块组成：</p>
 <ol>
 <li>最大池化层，作为对称的函数来从所有点中生成信息。</li>
 </ol>
-<p><img src="/.com//image-20200127161302928.png" alt="image-20200127161302928"></p>
+<p><img src="/2020/01/27/pointNet/image-20200127161302928.png" alt="image-20200127161302928"></p>
 <p>​     为了使模型对输入点的排列具有不变性，有三种不同的策略：1）对输入按照某种规则进行排序；2）将所有可能的排列作为一个序列进行输入，训练一个RNN; 3）使用一个具有对称性的函数</p>
 <p>​     本文中使用了第三种策略，采用了一个最大池化层对所有点的每个维度进行最大池化处理，生成与输入顺序无关的全局特征。</p>
 <ol>
 <li>一个局部和全局信息组合的结构(用于seg)</li>
 </ol>
-<p><img src="/.com//image-20200127161520979.png" alt="image-20200127161520979"></p>
+<p><img src="/2020/01/27/pointNet/image-20200127161520979.png" alt="image-20200127161520979"></p>
 <p>​        在计算出全局特征向量后，在每个点的局部特征之后加上该特征向量生成新的特征，可以使每个点既有局部信息又有全局信息。</p>
 <ol>
 <li>对齐网络分别用于对齐输入点云和特征(T-Net)</li>
 </ol>
-<p><img src="/.com//image-20200127161636465.png" alt="image-20200127161636465"></p>
+<p><img src="/2020/01/27/pointNet/image-20200127161636465.png" alt="image-20200127161636465"></p>
 <p>​     使用一个迷你网络(T-Net)来预测一个仿射变换，然后直接将该变换应用到输入点的坐标。同理，对于提取出的特征，也可以用网络学习一个更高维度的变换矩阵，并约束该矩阵为正交矩阵。</p>
 <h1 id="3-实验"><a href="#3-实验" class="headerlink" title="3. 实验"></a>3. 实验</h1><h2 id="3-1-3D-目标分类"><a href="#3-1-3D-目标分类" class="headerlink" title="3.1 3D 目标分类"></a>3.1 3D 目标分类</h2><p>数据集：ModelNet40 shape classification benchmark。12311个CAD模型共40类，9843用于训练，2468用于测试。</p>
-<p><img src="/.com//image-20200127163950411.png" alt="image-20200127163950411"></p>
+<p><img src="/2020/01/27/pointNet/image-20200127163950411.png" alt="image-20200127163950411"></p>
 <h2 id="3-2-3D物体部分分割"><a href="#3-2-3D物体部分分割" class="headerlink" title="3.2 3D物体部分分割"></a>3.2 3D物体部分分割</h2><p>数据集：ShapeNet part data.16个类别的16881个形状，总共有50个部分的标注，大多数类别的物体标注了2-5个部分。</p>
-<p><img src="/.com//image-20200127164351963.png" alt="image-20200127164351963"></p>
+<p><img src="/2020/01/27/pointNet/image-20200127164351963.png" alt="image-20200127164351963"></p>
 <h2 id="3-3-场景语义分割"><a href="#3-3-场景语义分割" class="headerlink" title="3.3 场景语义分割"></a>3.3 场景语义分割</h2><p>数据集：Stanford 3D semantic parsing dataset.27个房间6个区域的3D扫描点，共有13个类别的语义类别。</p>
-<p><img src="/.com//image-20200127164639253.png" alt="image-20200127164639253"></p>
-<p><img src="/.com//image-20200127164650996.png" alt="image-20200127164650996"></p>
-<p><img src="/.com//image-20200127164701888.png" alt="image-20200127164701888"></p>
-<h2 id="3-4-时空复杂度"><a href="#3-4-时空复杂度" class="headerlink" title="3.4 时空复杂度"></a>3.4 时空复杂度</h2><p><img src="/.com//image-20200127164847958.png" alt="image-20200127164847958"></p>
+<p><img src="/2020/01/27/pointNet/image-20200127164639253.png" alt="image-20200127164639253"></p>
+<p><img src="/2020/01/27/pointNet/image-20200127164650996.png" alt="image-20200127164650996"></p>
+<p><img src="/2020/01/27/pointNet/image-20200127164701888.png" alt="image-20200127164701888"></p>
+<h2 id="3-4-时空复杂度"><a href="#3-4-时空复杂度" class="headerlink" title="3.4 时空复杂度"></a>3.4 时空复杂度</h2><p><img src="/2020/01/27/pointNet/image-20200127164847958.png" alt="image-20200127164847958"></p>
 <h1 id="4-总结"><a href="#4-总结" class="headerlink" title="4. 总结"></a>4. 总结</h1><p>本文的工作提出了一种新颖的直接输入点云的网络结构，为多种三维任务提供了统一的方法，取得了较好的结果。</p>
 ]]></content>
       <categories>
