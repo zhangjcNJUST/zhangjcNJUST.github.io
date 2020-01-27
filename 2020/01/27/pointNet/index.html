@@ -51,31 +51,43 @@
   };
 </script>
 
-  <meta name="description" content="偷得浮生半日闲">
-<meta name="keywords" content="C++">
-<meta property="og:type" content="website">
-<meta property="og:title" content="zhangjc">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;index.html">
+  <meta name="description" content="论文链接：PointNet: Deep Learning on Point Sets for 3D Classification and Segmentation 代码：tensroflow pytorch  1. 摘要点云是几何数据结构的一种重要类型，由于它的格式不规则，大多数研究人员将这种数据转换成规则的三维体素栅格或者多幅图像的集合来进行处理。但是，这种方式会增加不必要的数据量并且导致一些问">
+<meta name="keywords" content="cls.,seg.,det.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文阅读(1)--PointNet">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;27&#x2F;pointNet&#x2F;index.html">
 <meta property="og:site_name" content="zhangjc">
-<meta property="og:description" content="偷得浮生半日闲">
+<meta property="og:description" content="论文链接：PointNet: Deep Learning on Point Sets for 3D Classification and Segmentation 代码：tensroflow pytorch  1. 摘要点云是几何数据结构的一种重要类型，由于它的格式不规则，大多数研究人员将这种数据转换成规则的三维体素栅格或者多幅图像的集合来进行处理。但是，这种方式会增加不必要的数据量并且导致一些问">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;.com&#x2F;&#x2F;image-20200127160355226.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;.com&#x2F;&#x2F;image-20200127161302928.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;.com&#x2F;&#x2F;image-20200127161520979.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;.com&#x2F;&#x2F;image-20200127161636465.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;.com&#x2F;&#x2F;image-20200127163950411.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;.com&#x2F;&#x2F;image-20200127164351963.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;.com&#x2F;&#x2F;image-20200127164639253.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;.com&#x2F;&#x2F;image-20200127164650996.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;.com&#x2F;&#x2F;image-20200127164701888.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;.com&#x2F;&#x2F;image-20200127164847958.png">
+<meta property="og:updated_time" content="2020-01-27T11:54:39.394Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;.com&#x2F;&#x2F;image-20200127160355226.png">
 
-<link rel="canonical" href="http://yoursite.com/">
+<link rel="canonical" href="http://yoursite.com/2020/01/27/pointNet/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: true,
-    isPost: false,
+    isHome: false,
+    isPost: true,
     isPage: false,
     isArchive: false
   };
 </script>
 
-  <title>zhangjc</title>
+  <title>论文阅读(1)--PointNet | zhangjc</title>
   
 
 
@@ -208,10 +220,10 @@
             
 
   <div class="posts-expand">
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/27/pointNet/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -225,8 +237,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/01/27/pointNet/" class="post-title-link" itemprop="url">论文阅读(1)--PointNet</a>
+          论文阅读(1)--PointNet
         </h1>
 
         <div class="post-meta">
@@ -262,7 +273,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>论文链接：<a href="http://openaccess.thecvf.com/content_cvpr_2017/papers/Qi_PointNet_Deep_Learning_CVPR_2017_paper.pdf" target="_blank" rel="noopener">PointNet: Deep Learning on Point Sets for 3D Classification and Segmentation</a></p>
+        <p>论文链接：<a href="http://openaccess.thecvf.com/content_cvpr_2017/papers/Qi_PointNet_Deep_Learning_CVPR_2017_paper.pdf" target="_blank" rel="noopener">PointNet: Deep Learning on Point Sets for 3D Classification and Segmentation</a></p>
 <p>代码：<a href="https://github.com/charlesq34/pointnet" target="_blank" rel="noopener">tensroflow</a> <a href="https://github.com/fxia22/pointnet.pytorch" target="_blank" rel="noopener">pytorch</a> </p>
 <h1 id="1-摘要"><a href="#1-摘要" class="headerlink" title="1. 摘要"></a>1. 摘要</h1><p>点云是几何数据结构的一种重要类型，由于它的格式不规则，大多数研究人员将这种数据转换成规则的三维体素栅格或者多幅图像的集合来进行处理。但是，这种方式会增加不必要的数据量并且导致一些问题。</p>
 <p>在本文中，设计了一种可以直接处理点云的新型神经网络，该网络很好的考虑的点云输入的排列不变性，将该网络命名为PointNet。PointNet为目标检测、部分分割、场景语义解析等应用提供了一种统一的结构。尽管很简单，PointNet非常的高效和有效。从实验上，它表现出与start-of-the-art同等强大或更优的性能；从理论上，本文分析了该网络学到了什么以及为何该网络对输入的扰动和破坏具有鲁棒性。</p>
@@ -295,15 +306,23 @@
 <h2 id="3-4-时空复杂度"><a href="#3-4-时空复杂度" class="headerlink" title="3.4 时空复杂度"></a>3.4 时空复杂度</h2><p><img src="/.com//image-20200127164847958.png" alt="image-20200127164847958"></p>
 <h1 id="4-总结"><a href="#4-总结" class="headerlink" title="4. 总结"></a>4. 总结</h1><p>本文的工作提出了一种新颖的直接输入点云的网络结构，为多种三维任务提供了统一的方法，取得了较好的结果。</p>
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
+          <div class="post-tags">
+              <a href="/tags/cls/" rel="tag"># cls.</a>
+              <a href="/tags/seg/" rel="tag"># seg.</a>
+              <a href="/tags/det/" rel="tag"># det.</a>
+          </div>
+
+        
+
       </footer>
+    
   </article>
   
   
@@ -311,12 +330,10 @@
 
   </div>
 
-  
-
-
 
           </div>
           
+    <div class="comments" id="gitalk-container"></div>
 
         </div>
           
@@ -341,6 +358,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-摘要"><span class="nav-number">1.</span> <span class="nav-text">1. 摘要</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-网络结构"><span class="nav-number">2.</span> <span class="nav-text">2. 网络结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-实验"><span class="nav-number">3.</span> <span class="nav-text">3. 实验</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-3D-目标分类"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 3D 目标分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-3D物体部分分割"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 3D物体部分分割</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-场景语义分割"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 场景语义分割</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-时空复杂度"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 时空复杂度</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-总结"><span class="nav-number">4.</span> <span class="nav-text">4. 总结</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -524,6 +542,23 @@ window.addEventListener('pjax:success', () => {
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: '8848f258ee6b53e23f5e',
+      clientSecret: 'cea86af2f061e5b48ae07cb844705c42e2454496',
+      repo: 'zhangjcNJUST.github.io',
+      owner: 'zhangjcNJUST',
+      admin: ['zhangjcNJUST'],
+      id: '79c0f36f0a2f80299d754b70ec7f4edd',
+        language: 'zh-CN',
+      distractionFreeMode: 'true'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
 
     </div>
 </body>
