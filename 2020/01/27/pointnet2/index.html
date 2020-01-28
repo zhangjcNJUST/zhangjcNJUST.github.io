@@ -327,36 +327,7 @@
 
           </div>
           
-      <div class="tabs tabs-comment">
-        <ul class="nav-tabs">
-            <li class="tab"><a href="#comment-gitalk">gitalk</a></li>
-            <li class="tab"><a href="#comment-valine">valine</a></li>
-        </ul>
-        <div class="tab-content">
-            <div class="tab-pane gitalk" id="comment-gitalk">
-              <div class="comments" id="gitalk-container"></div>
-            </div>
-            <div class="tab-pane valine" id="comment-valine">
-              <div class="comments" id="comments"></div>
-            </div>
-        </div>
-      </div>
-      <script>
-        window.addEventListener('tabs:register', () => {
-          let activeClass = 'valine';
-            activeClass = localStorage.getItem('comments_active') || activeClass;
-          if (activeClass) {
-            let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-            if (activeTab) {
-              activeTab.click();
-            }
-          }
-        });
-        window.addEventListener('tabs:click', event => {
-          let commentClass = event.target.classList[1];
-          localStorage.setItem('comments_active', commentClass);
-        });
-      </script>
+    <div class="comments" id="comments"></div>
 
         </div>
           
@@ -564,24 +535,6 @@ window.addEventListener('pjax:success', () => {
   
 
   
-
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
-
-<script>
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID: '8848f258ee6b53e23f5e',
-      clientSecret: 'cea86af2f061e5b48ae07cb844705c42e2454496',
-      repo: 'zhangjcNJUST.github.io',
-      owner: 'zhangjcNJUST',
-      admin: ['zhangjcNJUST'],
-      id: '0131b54bfc8e31b3871116e68a57ca22',
-        language: 'zh-CN',
-      distractionFreeMode: 'true'
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
-</script>
 
 
 <script>
