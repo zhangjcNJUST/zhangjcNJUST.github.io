@@ -212,6 +212,101 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/27/pointnet2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/pic.jpg">
+      <meta itemprop="name" content="zhangjc">
+      <meta itemprop="description" content="偷得浮生半日闲">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhangjc">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/27/pointnet2/" class="post-title-link" itemprop="url">论文阅读(2)--PointNet++</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-01-27 20:15:09 / 修改时间：20:33:48" itemprop="dateCreated datePublished" datetime="2020-01-27T20:15:09+08:00">2020-01-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" itemprop="url" rel="index">
+                    <span itemprop="name">论文阅读</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/01/27/pointnet2/" class="post-meta-item leancloud_visitors" data-flag-title="论文阅读(2)--PointNet++" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/01/27/pointnet2/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/01/27/pointnet2/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>论文链接：<a href="https://papers.nips.cc/paper/7095-pointnet-deep-hierarchical-feature-learning-on-point-sets-in-a-metric-space.pdf" target="_blank" rel="noopener">PointNet++: Deep Hierarchical Feature Learning on Point Sets in a Metric Space</a></p>
+<p>代码：<a href="https://github.com/charlesq34/pointnet2" target="_blank" rel="noopener">tensorflow</a> <a href="https://github.com/erikwijmans/Pointnet2_PyTorch" target="_blank" rel="noopener">pytorch</a></p>
+<h1 id="1-摘要"><a href="#1-摘要" class="headerlink" title="1. 摘要"></a>1. 摘要</h1><p>之前很少有工作研究直接在点集上进行的深度学习，PointNet是这个方向的先驱。但是，PointNet的设计并不能捕获度量空间点的局部结构，限制了它在识别更细密度模式以及概括复杂场景方面的能力。</p>
+<p>在本文中，提出了一种分层的神经网络，该网络在输入点集的嵌套分区中递归地使用PointNet(提取特征)。通过使用度量空间距离，该网络可以随着上下文比例的增加来学习局部特征。通过进一步的观察，点集通常会以不同的密度进行采样，这导致以均匀的密度进行训练的网络性能会大大降低，本文提出了新颖的集合学习层，来自适应的组合来自多个尺度的特征。</p>
+<p>实验表明，本文提出的PointNet++网络能够高效、鲁棒地学习深度点集特征。特别地，在具有挑战性的3D点云基准测试中，取得了远超过state-of-the-art的结果。</p>
+<h1 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h1>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/27/pointNet/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -252,6 +347,27 @@
             </span>
 
           
+            <span id="/2020/01/27/pointNet/" class="post-meta-item leancloud_visitors" data-flag-title="论文阅读(1)--PointNet" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/01/27/pointNet/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/01/27/pointNet/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
 
         </div>
       </header>
@@ -356,7 +472,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -524,6 +640,33 @@ window.addEventListener('pjax:success', () => {
 
   
 
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'QCCkjAU474qrQsjd9HSC1hjz-gzGzoHsz',
+    appKey: 'EPsYYvpmIgCS9o3Luo6HqqlL',
+    placeholder: "欢迎留言",
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true,
+    lang: '' || 'zh-cn',
+    path: location.pathname,
+    recordIP: false,
+    serverURLs: ''
+  });
+}, window.Valine);
+</script>
 
     </div>
 </body>

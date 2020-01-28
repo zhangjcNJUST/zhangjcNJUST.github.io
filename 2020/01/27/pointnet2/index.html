@@ -51,17 +51,18 @@
   };
 </script>
 
-  <meta name="description" content="偷得浮生半日闲">
-<meta name="keywords" content="C++">
-<meta property="og:type" content="website">
-<meta property="og:title" content="zhangjc">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;archives&#x2F;2020&#x2F;01&#x2F;index.html">
+  <meta name="description" content="论文链接：PointNet++: Deep Hierarchical Feature Learning on Point Sets in a Metric Space 代码：tensorflow pytorch 1. 摘要之前很少有工作研究直接在点集上进行的深度学习，PointNet是这个方向的先驱。但是，PointNet的设计并不能捕获度量空间点的局部结构，限制了它在识别更细密度模式以及概括复杂">
+<meta name="keywords" content="cls.,seg.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文阅读(2)--PointNet++">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;27&#x2F;pointnet2&#x2F;index.html">
 <meta property="og:site_name" content="zhangjc">
-<meta property="og:description" content="偷得浮生半日闲">
+<meta property="og:description" content="论文链接：PointNet++: Deep Hierarchical Feature Learning on Point Sets in a Metric Space 代码：tensorflow pytorch 1. 摘要之前很少有工作研究直接在点集上进行的深度学习，PointNet是这个方向的先驱。但是，PointNet的设计并不能捕获度量空间点的局部结构，限制了它在识别更细密度模式以及概括复杂">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-01-27T12:33:48.199Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/archives/2020/01/">
+<link rel="canonical" href="http://yoursite.com/2020/01/27/pointnet2/">
 
 
 <script id="page-configurations">
@@ -69,13 +70,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false,
+    isPost: true,
     isPage: false,
-    isArchive: true
+    isArchive: false
   };
 </script>
 
-  <title>归档 | zhangjc</title>
+  <title>论文阅读(2)--PointNet++ | zhangjc</title>
   
 
 
@@ -207,73 +208,155 @@
           <div class="content">
             
 
+  <div class="posts-expand">
+      
   
   
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/27/pointnet2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/pic.jpg">
+      <meta itemprop="name" content="zhangjc">
+      <meta itemprop="description" content="偷得浮生半日闲">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhangjc">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          论文阅读(2)--PointNet++
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-01-27 20:15:09 / 修改时间：20:33:48" itemprop="dateCreated datePublished" datetime="2020-01-27T20:15:09+08:00">2020-01-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" itemprop="url" rel="index">
+                    <span itemprop="name">论文阅读</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/01/27/pointnet2/" class="post-meta-item leancloud_visitors" data-flag-title="论文阅读(2)--PointNet++" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
   
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 2 篇日志。 继续努力。</span>
-      </div>
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/01/27/pointnet2/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/01/27/pointnet2/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <h1 class="collection-header">2020</h1>
+        <p>论文链接：<a href="https://papers.nips.cc/paper/7095-pointnet-deep-hierarchical-feature-learning-on-point-sets-in-a-metric-space.pdf" target="_blank" rel="noopener">PointNet++: Deep Hierarchical Feature Learning on Point Sets in a Metric Space</a></p>
+<p>代码：<a href="https://github.com/charlesq34/pointnet2" target="_blank" rel="noopener">tensorflow</a> <a href="https://github.com/erikwijmans/Pointnet2_PyTorch" target="_blank" rel="noopener">pytorch</a></p>
+<h1 id="1-摘要"><a href="#1-摘要" class="headerlink" title="1. 摘要"></a>1. 摘要</h1><p>之前很少有工作研究直接在点集上进行的深度学习，PointNet是这个方向的先驱。但是，PointNet的设计并不能捕获度量空间点的局部结构，限制了它在识别更细密度模式以及概括复杂场景方面的能力。</p>
+<p>在本文中，提出了一种分层的神经网络，该网络在输入点集的嵌套分区中递归地使用PointNet(提取特征)。通过使用度量空间距离，该网络可以随着上下文比例的增加来学习局部特征。通过进一步的观察，点集通常会以不同的密度进行采样，这导致以均匀的密度进行训练的网络性能会大大降低，本文提出了新颖的集合学习层，来自适应的组合来自多个尺度的特征。</p>
+<p>实验表明，本文提出的PointNet++网络能够高效、鲁棒地学习深度点集特征。特别地，在具有挑战性的3D点云基准测试中，取得了远超过state-of-the-art的结果。</p>
+<h1 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h1>
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-01-27T20:15:09+08:00"
-              content="2020-01-27">
-          01-27
-        </time>
-      </div>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/cls/" rel="tag"># cls.</a>
+              <a href="/tags/seg/" rel="tag"># seg.</a>
+          </div>
 
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/01/27/pointnet2/" itemprop="url">
-            <span itemprop="name">论文阅读(2)--PointNet++</span>
-          </a>
-      </h2>
+        
 
-    </header>
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2020/01/27/pointNet/" rel="next" title="论文阅读(1)--PointNet">
+                  <i class="fa fa-chevron-left"></i> 论文阅读(1)--PointNet
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+            </div>
+          </div>
+      </footer>
+    
   </article>
+  
+  
+  
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-01-27T17:17:15+08:00"
-              content="2020-01-27">
-          01-27
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/01/27/pointNet/" itemprop="url">
-            <span itemprop="name">论文阅读(1)--PointNet</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-
-    </div>
   </div>
-  
-  
-  
-
-  
-
 
 
           </div>
           
+      <div class="tabs tabs-comment">
+        <ul class="nav-tabs">
+            <li class="tab"><a href="#comment-gitalk">gitalk</a></li>
+            <li class="tab"><a href="#comment-valine">valine</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane gitalk" id="comment-gitalk">
+              <div class="comments" id="gitalk-container"></div>
+            </div>
+            <div class="tab-pane valine" id="comment-valine">
+              <div class="comments" id="comments"></div>
+            </div>
+        </div>
+      </div>
+      <script>
+        window.addEventListener('tabs:register', () => {
+          let activeClass = 'valine';
+            activeClass = localStorage.getItem('comments_active') || activeClass;
+          if (activeClass) {
+            let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+            if (activeTab) {
+              activeTab.click();
+            }
+          }
+        });
+        window.addEventListener('tabs:click', event => {
+          let commentClass = event.target.classList[1];
+          localStorage.setItem('comments_active', commentClass);
+        });
+      </script>
 
         </div>
           
@@ -298,6 +381,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-摘要"><span class="nav-number">1.</span> <span class="nav-text">1. 摘要</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2"><span class="nav-number">2.</span> <span class="nav-text">2.</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -481,6 +565,23 @@ window.addEventListener('pjax:success', () => {
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: '8848f258ee6b53e23f5e',
+      clientSecret: 'cea86af2f061e5b48ae07cb844705c42e2454496',
+      repo: 'zhangjcNJUST.github.io',
+      owner: 'zhangjcNJUST',
+      admin: ['zhangjcNJUST'],
+      id: '0131b54bfc8e31b3871116e68a57ca22',
+        language: 'zh-CN',
+      distractionFreeMode: 'true'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
 
 
 <script>
