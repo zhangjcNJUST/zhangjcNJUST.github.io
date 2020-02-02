@@ -25,7 +25,7 @@
 </ul>
 <figure class="highlight protobuf"><table><tr><td class="code"><pre><span class="line"><span class="keyword">repeated</span> <span class="built_in">int32</span> samples = <span class="number">4</span>[packed = <span class="literal">true</span>];</span><br></pre></td></tr></table></figure>
 <p>一个.proto文件中可以定义多个消息类型。</p>
-<p>.proto文件中的注释：与C/C++一样使用$//$和$/<em> </em>/$</p>
+<p>.proto文件中的注释：与C/C++中一样</p>
 <p>reserved field：防止某些删除了的field number被重新定义，加载旧版本时出问题，example:</p>
 <figure class="highlight protobuf"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">message</span> <span class="title">Foo</span></span>&#123;</span><br><span class="line">	reserved <span class="number">2</span>,<span class="number">15</span>,<span class="number">9</span> to <span class="number">11</span>;</span><br><span class="line">	reserved <span class="string">"foo"</span>, <span class="string">"bar"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>.proto文件编译后生成什么：</p>
