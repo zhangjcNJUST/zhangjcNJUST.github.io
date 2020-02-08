@@ -2,6 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2020/02/03/bazel/</loc>
+    
+    <lastmod>2020-02-08T08:36:22.552Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2020/02/07/stl/</loc>
+    
+    <lastmod>2020-02-07T07:51:10.934Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2020/02/05/docker/</loc>
+    
+    <lastmod>2020-02-05T07:33:09.479Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2020/02/03/proj2img/</loc>
+    
+    <lastmod>2020-02-03T01:02:53.201Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2020/02/03/pointgrid/</loc>
+    
+    <lastmod>2020-02-03T01:02:41.897Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2020/02/02/protobuf/</loc>
     
     <lastmod>2020-02-02T09:26:36.218Z</lastmod>

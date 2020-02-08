@@ -1,6 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>stl</title>
+    <url>/2020/02/07/stl/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>docker</title>
+    <url>/2020/02/05/docker/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>bazel学习</title>
+    <url>/2020/02/03/bazel/</url>
+    <content><![CDATA[<p>参考：</p>
+<p><a href="https://docs.bazel.build/versions/master/tutorial/cpp.html" target="_blank" rel="noopener">Introduction to Bazel: Building a C++ Project</a> </p>
+<p><a href="https://docs.bazel.build/versions/master/external.html" target="_blank" rel="noopener">Working with external dependencies</a></p>
+<h1 id="1-Cpp-turorial"><a href="#1-Cpp-turorial" class="headerlink" title="1. Cpp-turorial"></a>1. Cpp-turorial</h1><p><img src="/2020/02/03/bazel/image-20200208150619959.png" alt="image-20200208150619959"></p>
+<h2 id="1-1-Set-workspace"><a href="#1-1-Set-workspace" class="headerlink" title="1.1 Set workspace"></a>1.1 Set workspace</h2><p> A workspace is a directory that holds your project’s source files and Bazel’s build outputs.</p>
+<p> It also contains files that Bazel recognizes as special:</p>
+<ul>
+<li>WORKSPACE文件，放在项目根目录下</li>
+<li>BUILD文件，tell Bazel how to build different parts of the project. WORKSPACE中一个包含BUILD文件的目录是一个package.</li>
+</ul>
+<h2 id="1-2-BUILD-file"><a href="#1-2-BUILD-file" class="headerlink" title="1.2 BUILD file"></a>1.2 BUILD file</h2><p> A <code>BUILD</code> file contains several different types of instructions for Bazel.</p>
+<p>The most important type is the <em>build rule</em>, which tells Bazel how to build the desired outputs, such as executable binaries or libraries. </p>
+<p> Each instance of a build rule in the <code>BUILD</code> file is called a <em>target</em> and points to a specific set of source files and dependencies. A target can also point to other targets.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cc_binary(</span><br><span class="line">    name = &quot;hello-world&quot;,</span><br><span class="line">    srcs = [&quot;hello-world.cc&quot;],</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p><a href="https://docs.bazel.build/versions/master/be/c-cpp.html#cc_binary" target="_blank" rel="noopener"><code>cc_binary</code> rule</a></p>
+<p>The rule tells Bazel to build a self-contained executable binary from the <code>hello-world.cc</code> source file with no dependencies.</p>
+<h2 id="1-3-Build-the-project"><a href="#1-3-Build-the-project" class="headerlink" title="1.3 Build the project"></a>1.3 Build the project</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">bazel build //main:hello-world</span><br></pre></td></tr></table></figure>
+<p><code>//main:</code>  target label</p>
+<p>build outputs in bazel-in directory</p>
+<h2 id="1-4-Review-the-dependency-graph"><a href="#1-4-Review-the-dependency-graph" class="headerlink" title="1.4 Review the dependency graph"></a>1.4 Review the dependency graph</h2><p>generate a text representation</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">bazel query --notool_deps --noimplicit_deps 'deps(//main:hello-world)' \</span><br><span class="line">  --output graph</span><br></pre></td></tr></table></figure>
+<p>paste the text into GraphViz.</p>
+<p>install GraphViz and xdot Dot Viewer</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt update &amp;&amp; sudo apt install graphviz xdot</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">xdot &lt;(bazel query --notool_deps --noimplicit_deps 'deps(//main:hello-world)' \</span><br><span class="line">  --output graph)</span><br></pre></td></tr></table></figure>
+<h2 id="1-5-Multiple-build-targets"><a href="#1-5-Multiple-build-targets" class="headerlink" title="1.5 Multiple build targets"></a>1.5 Multiple build targets</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cc_library(</span><br><span class="line">    name = &quot;hello-greet&quot;,</span><br><span class="line">    srcs = [&quot;hello-greet.cc&quot;],</span><br><span class="line">    hdrs = [&quot;hello-greet.h&quot;],</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">cc_binary(</span><br><span class="line">    name = &quot;hello-world&quot;,</span><br><span class="line">    srcs = [&quot;hello-world.cc&quot;],</span><br><span class="line">    deps = [</span><br><span class="line">        &quot;:hello-greet&quot;,</span><br><span class="line">    ],</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>first builds the <code>hello-greet</code> library (using Bazel’s built-in <a href="https://docs.bazel.build/versions/master/be/c-cpp.html#cc_library" target="_blank" rel="noopener"><code>cc_library</code> rule</a>)</p>
+<p>then the <code>hello-world</code> binary</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">bazel build //main:hello-world</span><br></pre></td></tr></table></figure>
+<p><img src="/2020/02/03/bazel/image-20200208154634444.png" alt="image-20200208154634444"></p>
+<h2 id="1-6-Multiple-packages"><a href="#1-6-Multiple-packages" class="headerlink" title="1.6 Multiple packages"></a>1.6 Multiple packages</h2><p><img src="/2020/02/03/bazel/image-20200208154718695.png" alt="image-20200208154718695"></p>
+<p>lib/BUILD file:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cc_library(</span><br><span class="line">    name = &quot;hello-time&quot;,</span><br><span class="line">    srcs = [&quot;hello-time.cc&quot;],</span><br><span class="line">    hdrs = [&quot;hello-time.h&quot;],</span><br><span class="line">    visibility = [&quot;//main:__pkg__&quot;],</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>make the <code>//lib:hello-time</code> target in <code>lib/BUILD</code> explicitly visible to targets in <code>main/BUILD</code> using the <code>visibility</code> attribute.</p>
+<p> This is because by default targets are only visible to other targets in the same <code>BUILD</code> file. (Bazel uses target visibility to prevent issues such as libraries containing implementation details leaking into public APIs.)</p>
+<p>main/BUILD file:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cc_library(</span><br><span class="line">    name = &quot;hello-greet&quot;,</span><br><span class="line">    srcs = [&quot;hello-greet.cc&quot;],</span><br><span class="line">    hdrs = [&quot;hello-greet.h&quot;],</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">cc_binary(</span><br><span class="line">    name = &quot;hello-world&quot;,</span><br><span class="line">    srcs = [&quot;hello-world.cc&quot;],</span><br><span class="line">    deps = [</span><br><span class="line">        &quot;:hello-greet&quot;,</span><br><span class="line">        &quot;//lib:hello-time&quot;,</span><br><span class="line">    ],</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p><img src="/2020/02/03/bazel/image-20200208155111217.png" alt="image-20200208155111217"></p>
+<h2 id="1-7-Using-labels-to-reference-targets"><a href="#1-7-Using-labels-to-reference-targets" class="headerlink" title="1.7 Using labels to reference targets"></a>1.7 Using labels to reference targets</h2><p>In <code>BUILD</code> files and at the command line, Bazel uses <em>labels</em> to reference targets - for example, <code>//main:hello-world</code> or <code>//lib:hello-time</code>. </p>
+<p>Their syntax is:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">//path/to/package:target-name</span><br></pre></td></tr></table></figure>
+<h1 id="2-Working-with-external-dependencies"><a href="#2-Working-with-external-dependencies" class="headerlink" title="2. Working with external dependencies"></a>2. Working with external dependencies</h1><p>depend on targets from other projects.</p>
+<h2 id="2-1-Depending-on-other-Bazel-projects"><a href="#2-1-Depending-on-other-Bazel-projects" class="headerlink" title="2.1 Depending on other Bazel projects"></a>2.1 Depending on other Bazel projects</h2><p>use <a href="http://docs.bazel.build/be/workspace.html#local_repository" target="_blank" rel="noopener"><code>local_repository</code></a>, <a href="https://docs.bazel.build/versions/master/repo/git.html#git_repository" target="_blank" rel="noopener"><code>git_repository</code></a> or <a href="https://docs.bazel.build/versions/master/repo/http.html#http_archive" target="_blank" rel="noopener"><code>http_archive</code></a> to symlink it from the local filesystem, reference a git repository or download it (respectively)</p>
+<p>example（add to WORKSPACE）:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">local_repository(</span><br><span class="line">    name = &quot;coworkers_project&quot;,</span><br><span class="line">    path = &quot;/path/to/coworkers-project&quot;,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h2 id="2-2-Depending-on-non-Bazel-projects"><a href="#2-2-Depending-on-non-Bazel-projects" class="headerlink" title="2.2 Depending on non-Bazel projects"></a>2.2 Depending on non-Bazel projects</h2><p> prefixed with <code>new_</code> , e.g. <a href="http://docs.bazel.build/be/workspace.html#new_local_repository" target="_blank" rel="noopener"><code>new_local_repository</code></a></p>
+<p>example:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">new_local_repository(</span><br><span class="line">    name = &quot;coworkers_project&quot;,</span><br><span class="line">    path = &quot;/path/to/coworkers-project&quot;,</span><br><span class="line">    build_file = &quot;coworker.BUILD&quot;,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p><code>build_file</code> specifies a BUILD file to overlay on the existing project</p>
+<p>example:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cc_library(</span><br><span class="line">    name = &quot;some-lib&quot;,</span><br><span class="line">    srcs = glob([&quot;**&quot;]),</span><br><span class="line">    visibility = [&quot;//visibility:public&quot;],</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p> then depend on <code>@coworkers_project//:some-lib</code> from your project’s BUILD files</p>
+<h2 id="2-3-Fetching-dependencies"><a href="#2-3-Fetching-dependencies" class="headerlink" title="2.3 Fetching dependencies"></a>2.3 Fetching dependencies</h2><p>By default, external dependencies are fetched as needed during <code>bazel build</code>.</p>
+<p>If you would like to prefetch the dependencies needed for a specific set of targets, use <a href="https://docs.bazel.build/versions/master/command-line-reference.html#commands" target="_blank" rel="noopener"><code>bazel fetch</code></a>. </p>
+<p>To unconditionally fetch all external dependencies, use <a href="https://docs.bazel.build/versions/master/command-line-reference.html#commands" target="_blank" rel="noopener"><code>bazel sync</code></a>. </p>
+<p>As fetched repositories are <a href="https://docs.bazel.build/versions/master/external.html#layout" target="_blank" rel="noopener">stored in the output base</a>, fetching happens per workspace.</p>
+<h2 id="2-4-Caching-of-external-dependencies"><a href="#2-4-Caching-of-external-dependencies" class="headerlink" title="2.4 Caching of external dependencies"></a>2.4 Caching of external dependencies</h2><p>By default, Bazel will only re-download external dependencies if their definition changes. </p>
+<p>Changes to files referenced in the definition (e.g., patches or <code>BUILD</code> files) are also taken into account by bazel.</p>
+<p>To force a re-download, use <code>bazel sync</code></p>
+<p>External dependencies are all downloaded to a directory under the subdirectory <code>external</code> in the <a href="https://docs.bazel.build/versions/master/output_directories.html" target="_blank" rel="noopener">output base</a></p>
+<p>In case of a <a href="https://docs.bazel.build/versions/master/be/workspace.html#local_repository" target="_blank" rel="noopener">local repository</a>, a symlink is created there instead of creating a new directory.</p>
+<p>see the <code>external</code> directory by running:</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ls $(bazel info output_base)/external</span><br></pre></td></tr></table></figure>
+<h2 id="2-5-Offline-build"><a href="#2-5-Offline-build" class="headerlink" title="2.5 Offline build"></a>2.5 Offline build</h2><p><a href="https://docs.bazel.build/versions/master/external.html#fetching-dependencies" target="_blank" rel="noopener">prefetching</a> the needed repositories with <code>bazel fetch</code> or <code>bazel sync</code> can be enough;</p>
+<p> moreover, the using the option <code>--nofetch</code>, fetching of further repositories can be disabled during the build.</p>
+<p>For true offline builds, where the providing of the needed files is to be done by an entity different from bazel, bazel supports the option <code>--distdir</code>. Whenever a repository rule asks bazel to fetch a file via <a href="https://docs.bazel.build/versions/master/skylark/lib/repository_ctx.html#download" target="_blank" rel="noopener"><code>ctx.download</code></a> or <a href="https://docs.bazel.build/versions/master/skylark/lib/repository_ctx.html#download_and_extract" target="_blank" rel="noopener"><code>ctx.download_and_extract</code></a> and provides a hash sum of the file needed, bazel will first look into the directories specified by that option for a file matching the basename of the first URL provided, and use that local copy if the hash matches.</p>
+<p>However, bazel allows the execution of arbitrary commands in repository rules, without knowing if they call out to the network. Therefore, bazel has no option to enforce builds being fully offline. So testing if a build works correctly offline requires external blocking of the network, as bazel does in its bootstrap test.</p>
+<h2 id="2-6-Best-practices"><a href="#2-6-Best-practices" class="headerlink" title="2.6 Best practices"></a>2.6 Best practices</h2><ul>
+<li>Prefer <a href="https://docs.bazel.build/versions/master/repo/http.html#http_archive" target="_blank" rel="noopener"><code>http_archive</code></a> to <code>git_repository</code> and <code>new_git_repository</code>.</li>
+<li>Do not use <code>bind()</code>. </li>
+<li>Avoid using <code>repository_ctx.execute</code> when possible.when using a non-Bazel C++ library that has a build using Make, it is preferable to use <code>repository_ctx.download()</code> and then write a BUILD file that builds it, instead of running <code>ctx.execute([&quot;make&quot;])</code>.</li>
+</ul>
+]]></content>
+      <categories>
+        <category>工具学习</category>
+      </categories>
+      <tags>
+        <tag>bazel</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>proj2img</title>
+    <url>/2020/02/03/proj2img/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>pointgrid</title>
+    <url>/2020/02/03/pointgrid/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>protocol buffers学习</title>
     <url>/2020/02/02/protobuf/</url>
     <content><![CDATA[<p>参考：<a href="https://developers.google.com/protocol-buffers" target="_blank" rel="noopener">Protocol Buffers</a></p>

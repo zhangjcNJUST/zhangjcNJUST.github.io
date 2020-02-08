@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="zhangjc" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":"flat"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":true,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: true,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":4,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="偷得浮生半日闲">
+<meta name="keywords" content="C++">
+<meta property="og:type" content="website">
+<meta property="og:title" content="zhangjc">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;page&#x2F;4&#x2F;index.html">
+<meta property="og:site_name" content="zhangjc">
+<meta property="og:description" content="偷得浮生半日闲">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/page/4/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: true,
+    isPost: false,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>zhangjc</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">zhangjc</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">zhang_j_c@qq.com</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/31/projection2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/pic.jpg">
+      <meta itemprop="name" content="zhangjc">
+      <meta itemprop="description" content="偷得浮生半日闲">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhangjc">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/31/projection2/" class="post-title-link" itemprop="url">点云投影(2)--投影到圆柱展开面</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-01-31 16:20:27" itemprop="dateCreated datePublished" datetime="2020-01-31T16:20:27+08:00">2020-01-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-02 17:18:26" itemprop="dateModified" datetime="2020-02-02T17:18:26+08:00">2020-02-02</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%BF%80%E5%85%89%E9%9B%B7%E8%BE%BE/" itemprop="url" rel="index">
+                    <span itemprop="name">激光雷达</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/01/31/projection2/" class="post-meta-item leancloud_visitors" data-flag-title="点云投影(2)--投影到圆柱展开面" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/01/31/projection2/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/01/31/projection2/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/31/projection1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/pic.jpg">
+      <meta itemprop="name" content="zhangjc">
+      <meta itemprop="description" content="偷得浮生半日闲">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhangjc">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/31/projection1/" class="post-title-link" itemprop="url">点云投影(1)--投影到XY平面(鸟瞰图)</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-01-31 15:33:01 / 修改时间：16:14:45" itemprop="dateCreated datePublished" datetime="2020-01-31T15:33:01+08:00">2020-01-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%BF%80%E5%85%89%E9%9B%B7%E8%BE%BE/" itemprop="url" rel="index">
+                    <span itemprop="name">激光雷达</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/01/31/projection1/" class="post-meta-item leancloud_visitors" data-flag-title="点云投影(1)--投影到XY平面(鸟瞰图)" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/01/31/projection1/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/01/31/projection1/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>参考：<a href="https://blog.csdn.net/qq_33801763/article/details/78923310" target="_blank" rel="noopener">处理点云数据(一)：点云与生成鸟瞰图</a></p>
+<h1 id="1-图像坐标系与激光雷达坐标系"><a href="#1-图像坐标系与激光雷达坐标系" class="headerlink" title="1. 图像坐标系与激光雷达坐标系"></a>1. 图像坐标系与激光雷达坐标系</h1><p><img src="/2020/01/31/projection1/1.png" alt="1" style="zoom: 33%;"></p>
+<p>图像坐标系：</p>
+<ul>
+<li>原点左上角</li>
+<li>坐标值都为正</li>
+<li>坐标值都是整数</li>
+</ul>
+<p><img src="/2020/01/31/projection1/2.png" alt="2" style="zoom:33%;"></p>
+<p>点云坐标系：</p>
+<ul>
+<li>左方为Y轴正方向、前方为X轴正方向、上方为Z轴正方向</li>
+<li>坐标值有正有负</li>
+<li>坐标值为实数</li>
+</ul>
+<h1 id="2-创建鸟瞰图投影"><a href="#2-创建鸟瞰图投影" class="headerlink" title="2. 创建鸟瞰图投影"></a>2. 创建鸟瞰图投影</h1><h2 id="2-1-选择投影区域"><a href="#2-1-选择投影区域" class="headerlink" title="2.1 选择投影区域"></a>2.1 选择投影区域</h2><p>一般情况下，只关注车体附近一定范围内的点云，无需对所有点云进行处理，本文选择车身左右各10m，车后20m，车前40m作为感兴趣区域。</p>
+<h2 id="2-2-设置投影分辨率"><a href="#2-2-设置投影分辨率" class="headerlink" title="2.2 设置投影分辨率"></a>2.2 设置投影分辨率</h2><p>设置每个像素所代表的区域范围，本文设置分辨率res为0.05m，则生成投影图的高度为$ 60 / 0.05 = 1200$，宽度为$20 / 0.05 = 400$。</p>
+<h2 id="2-3-将每个点映射到像素位置"><a href="#2-3-将每个点映射到像素位置" class="headerlink" title="2.3 将每个点映射到像素位置"></a>2.3 将每个点映射到像素位置</h2><p>映射公式：</p>
+<script type="math/tex; mode=display">
+col = [-y / res] + \lfloor leftoffset / res \rfloor</script><script type="math/tex; mode=display">
+row = [-x / res] + \lceil forwardoffset / res \rceil</script><p>其中，$leftoffset$和$forwardoffset$为车左方和前方的最大距离，均为正值，目的是是将转换后的原点变为左上角，坐标值都为正。</p>
+<h2 id="2-4-填充像素值"><a href="#2-4-填充像素值" class="headerlink" title="2.4 填充像素值"></a>2.4 填充像素值</h2><p>将所有点的Z值归一化到0-255后，赋值给每个点对应位置的像素值。</p>
+<h1 id="3-可视化结果"><a href="#3-可视化结果" class="headerlink" title="3. 可视化结果"></a>3. 可视化结果</h1><p><img src="/2020/01/31/projection1/3.png" alt="3" style="zoom:200%;"></p>
+<h1 id="4-相关代码"><a href="#4-相关代码" class="headerlink" title="4. 相关代码"></a>4. 相关代码</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">load_velodyne_points</span><span class="params">(filename)</span>:</span></span><br><span class="line">    <span class="string">""" load lidar data from .bin file </span></span><br><span class="line"><span class="string">        [https://github.com/hunse/kitti]</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    points = np.fromfile(filename, dtype = np.float32).reshape(<span class="number">-1</span>,<span class="number">4</span>)</span><br><span class="line">    <span class="comment"># remove intensity</span></span><br><span class="line">    points = points[:,<span class="number">0</span>:<span class="number">3</span>]</span><br><span class="line">    <span class="keyword">return</span> points</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    data_file = <span class="string">"./data.bin"</span></span><br><span class="line">    points = load_velodyne_points(data_file)</span><br><span class="line">    <span class="comment">#print(points.shape) #55597*3</span></span><br><span class="line">    <span class="comment">#print(points[:20])</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># choose ROI</span></span><br><span class="line">    <span class="comment"># left 10,right 10,back 20.forward 40</span></span><br><span class="line">    side_range = (<span class="number">-10</span>, <span class="number">10</span>)</span><br><span class="line">    fwd_range = (<span class="number">-20</span>, <span class="number">40</span>)</span><br><span class="line">    </span><br><span class="line">    x_points = points[:, <span class="number">0</span>]</span><br><span class="line">    y_points = points[:, <span class="number">1</span>]</span><br><span class="line">    z_points = points[:, <span class="number">2</span>]</span><br><span class="line"></span><br><span class="line">    <span class="comment"># filter</span></span><br><span class="line">    side_filter = np.logical_and((y_points &gt; -side_range[<span class="number">1</span>]), (y_points &lt; -side_range[<span class="number">0</span>])) <span class="comment"># left y positive, right y negative</span></span><br><span class="line">    fwd_filter = np.logical_and((x_points &gt; fwd_range[<span class="number">0</span>]), (x_points &lt; fwd_range[<span class="number">1</span>]))</span><br><span class="line">    filter = np.logical_and(side_filter, fwd_filter)</span><br><span class="line">    indices = np.argwhere(filter).flatten()</span><br><span class="line"></span><br><span class="line">    x_points = x_points[indices]</span><br><span class="line">    y_points = y_points[indices]</span><br><span class="line">    z_points = z_points[indices]</span><br><span class="line"></span><br><span class="line">    <span class="comment"># print(x_points.size)</span></span><br><span class="line">    <span class="comment"># print(y_points.size)</span></span><br><span class="line">    <span class="comment"># print(z_points.size)</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># resolution</span></span><br><span class="line">    reso = <span class="number">0.05</span> <span class="comment"># 5cm</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># transfer to image axis</span></span><br><span class="line">    x_img = (-y_points / reso).astype(np.int32)</span><br><span class="line">    y_img = (-x_points / reso).astype(np.int32)</span><br><span class="line">    x_img -= int(np.floor(side_range[<span class="number">0</span>]) / reso)</span><br><span class="line">    y_img += int(np.ceil(fwd_range[<span class="number">1</span>]) / reso)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># set height range</span></span><br><span class="line">    height_range = (<span class="number">-2</span>, <span class="number">0.5</span>)</span><br><span class="line">    pixel_val = np.clip(a = z_points, a_min = height_range[<span class="number">0</span>], a_max = height_range[<span class="number">1</span>])</span><br><span class="line">    <span class="comment"># scale to 0-255</span></span><br><span class="line">    pixel_val = ((pixel_val - height_range[<span class="number">0</span>]) / float(height_range[<span class="number">1</span>] - height_range[<span class="number">0</span>]) * <span class="number">255</span>).astype(np.uint8)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># initial empty image</span></span><br><span class="line">    x_max = int((side_range[<span class="number">1</span>] - side_range[<span class="number">0</span>]) / reso) + <span class="number">1</span> <span class="comment"># cols</span></span><br><span class="line">    y_max = int((fwd_range[<span class="number">1</span>] - fwd_range[<span class="number">0</span>]) / reso) + <span class="number">1</span> <span class="comment"># rows</span></span><br><span class="line">    img = np.zeros([y_max, x_max], dtype = np.uint8)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># fill image with height info</span></span><br><span class="line">    img[y_img, x_img] = pixel_val</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># show image</span></span><br><span class="line">    plt.imshow(img)</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+  </div>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="zhangjc"
+    src="/images/pic.jpg">
+  <p class="site-author-name" itemprop="name">zhangjc</p>
+  <div class="site-description" itemprop="description">偷得浮生半日闲</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhangjc</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.5.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.getAttribute('pjax') !== null) {
+      element.setAttribute('pjax', '');
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+
+  
+
+  
+      
+<script type="text/x-mathjax-config">
+    MathJax.Ajax.config.path['mhchem'] = '//cdn.jsdelivr.net/npm/mathjax-mhchem@3';
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        extensions: ['[mhchem]/mhchem.js'],
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'QCCkjAU474qrQsjd9HSC1hjz-gzGzoHsz',
+    appKey: 'EPsYYvpmIgCS9o3Luo6HqqlL',
+    placeholder: "欢迎留言",
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true,
+    lang: '' || 'zh-cn',
+    path: location.pathname,
+    recordIP: false,
+    serverURLs: ''
+  });
+}, window.Valine);
+</script>
+
+    </div>
+</body>
+</html>
