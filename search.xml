@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>STL 学习</title>
+    <title>论文阅读(4)--LOAM</title>
+    <url>/2020/02/14/loam/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>论文阅读</category>
+      </categories>
+      <tags>
+        <tag>SLAM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>学习STL</title>
     <url>/2020/02/07/stl/</url>
     <content><![CDATA[<p>参考：</p>
 <p>STL基本概念：标准模板库，广义上分为容器、算法、迭代器</p>
@@ -20,7 +31,7 @@
       </tags>
   </entry>
   <entry>
-    <title>docker 学习</title>
+    <title>学习docker</title>
     <url>/2020/02/05/docker/</url>
     <content><![CDATA[<p>参考：深入浅出docker</p>
 <h1 id="Docker-镜像"><a href="#Docker-镜像" class="headerlink" title="Docker 镜像"></a>Docker 镜像</h1><p><img src="/2020/02/05/docker/image-20200214161141013.png" alt="image-20200214161141013"></p>
@@ -117,7 +128,7 @@
       </tags>
   </entry>
   <entry>
-    <title>bazel学习</title>
+    <title>学习bazel</title>
     <url>/2020/02/03/bazel/</url>
     <content><![CDATA[<p>参考：</p>
 <p><a href="https://docs.bazel.build/versions/master/tutorial/cpp.html" target="_blank" rel="noopener">Introduction to Bazel: Building a C++ Project</a> </p>
@@ -200,17 +211,31 @@
       </tags>
   </entry>
   <entry>
-    <title>proj2img</title>
+    <title>点云投影(3)--投影到图像</title>
     <url>/2020/02/03/proj2img/</url>
     <content><![CDATA[]]></content>
+      <categories>
+        <category>激光雷达</category>
+      </categories>
+      <tags>
+        <tag>LiDAR</tag>
+      </tags>
   </entry>
   <entry>
-    <title>pointgrid</title>
+    <title>论文阅读(3)--pointGrid</title>
     <url>/2020/02/03/pointgrid/</url>
     <content><![CDATA[]]></content>
+      <categories>
+        <category>论文阅读</category>
+      </categories>
+      <tags>
+        <tag>cls.</tag>
+        <tag>seg.</tag>
+        <tag>det.</tag>
+      </tags>
   </entry>
   <entry>
-    <title>protocol buffers学习</title>
+    <title>学习protocol buffers</title>
     <url>/2020/02/02/protobuf/</url>
     <content><![CDATA[<p>参考：<a href="https://developers.google.com/protocol-buffers" target="_blank" rel="noopener">Protocol Buffers</a></p>
 <h1 id="1-什么是protocol-buffers"><a href="#1-什么是protocol-buffers" class="headerlink" title="1. 什么是protocol buffers"></a>1. 什么是protocol buffers</h1><p> a flexible, efficient, automated mechanism for serializing structured data – think XML</p>

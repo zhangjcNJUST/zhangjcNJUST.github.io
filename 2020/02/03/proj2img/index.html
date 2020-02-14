@@ -52,14 +52,14 @@
 </script>
 
   <meta name="description" content="偷得浮生半日闲">
-<meta name="keywords" content="C++">
+<meta name="keywords" content="LiDAR">
 <meta property="og:type" content="article">
-<meta property="og:title" content="proj2img">
+<meta property="og:title" content="点云投影(3)--投影到图像">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;03&#x2F;proj2img&#x2F;index.html">
 <meta property="og:site_name" content="zhangjc">
 <meta property="og:description" content="偷得浮生半日闲">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-03T01:02:53.201Z">
+<meta property="og:updated_time" content="2020-02-14T09:34:41.085Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2020/02/03/proj2img/">
@@ -76,7 +76,7 @@
   };
 </script>
 
-  <title>proj2img | zhangjc</title>
+  <title>点云投影(3)--投影到图像 | zhangjc</title>
   
 
 
@@ -226,7 +226,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          proj2img
+          点云投影(3)--投影到图像
         </h1>
 
         <div class="post-meta">
@@ -238,9 +238,27 @@
 
               <time title="创建时间：2020-02-03 09:02:53" itemprop="dateCreated datePublished" datetime="2020-02-03T09:02:53+08:00">2020-02-03</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-14 17:34:41" itemprop="dateModified" datetime="2020-02-14T17:34:41+08:00">2020-02-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%BF%80%E5%85%89%E9%9B%B7%E8%BE%BE/" itemprop="url" rel="index">
+                    <span itemprop="name">激光雷达</span>
+                  </a>
+                </span>
+            </span>
 
           
-            <span id="/2020/02/03/proj2img/" class="post-meta-item leancloud_visitors" data-flag-title="proj2img" title="阅读次数">
+            <span id="/2020/02/03/proj2img/" class="post-meta-item leancloud_visitors" data-flag-title="点云投影(3)--投影到图像" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -279,21 +297,24 @@
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/LiDAR/" rel="tag"># LiDAR</a>
+          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
-                <a href="/2020/02/03/pointgrid/" rel="next" title="pointgrid">
-                  <i class="fa fa-chevron-left"></i> pointgrid
+                <a href="/2020/02/03/pointgrid/" rel="next" title="论文阅读(3)--pointGrid">
+                  <i class="fa fa-chevron-left"></i> 论文阅读(3)--pointGrid
                 </a>
             </div>
 
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-                <a href="/2020/02/03/bazel/" rel="prev" title="bazel学习">
-                  bazel学习 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/02/03/bazel/" rel="prev" title="学习bazel">
+                  学习bazel <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -349,7 +370,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -362,7 +383,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -514,6 +535,56 @@ window.addEventListener('pjax:success', () => {
   
 
   
+      
+<script type="text/x-mathjax-config">
+    MathJax.Ajax.config.path['mhchem'] = '//cdn.jsdelivr.net/npm/mathjax-mhchem@3';
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        extensions: ['[mhchem]/mhchem.js'],
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
 
   
 
